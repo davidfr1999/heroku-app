@@ -2,10 +2,13 @@
 <html>
 <head>
     <title>Conversion Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Conversion Result</h1>
-    <p>Converted Amount: {{ converted_amount }}</p>
-    <a href="/currency_converter">Convert again</a>
+    <div class="container">
+        <h1>Conversion Result</h1>
+        <p>Converted Amount: {{ converted_amount }}</p>
+        <a class="btn" href="/">Convert again</a>
+    </div>
 </body>
 </html>

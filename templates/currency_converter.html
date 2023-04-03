@@ -2,13 +2,27 @@
 <html>
 <head>
     <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Currency Converter</h1>
-    <form action="/" method="POST">
-        Amount (in USD): <input type="text" name="amount" required><br>
-        Convert to (currency code): <input type="text" name="currency" required><br>
-        <input type="submit" value="Convert">
-    </form>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="POST" action="/">
+            <label for="amount">Amount:</label>
+            <input type="number" step="any" name="amount" required>
+            
+            <label for="source_currency">From Currency (e.g. USD):</label>
+            <input type="text" name="source_currency" required>
+            
+            <label for="target_currency">To Currency (e.g. EUR):</label>
+            <input type="text" name="target_currency" required>
+            
+            <button type="submit">Convert</button>
+        </form>
+    </div>
 </body>
 </html>
+
